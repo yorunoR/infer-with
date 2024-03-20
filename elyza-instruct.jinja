@@ -1,0 +1,15 @@
+<s>[INST] <<SYS>>
+{%- for message in messages %}
+{%- if message['role'].lower() == 'system' %}
+{{message['content']}}
+{%- endif %}
+{%- endfor %}
+<</SYS>>
+{{''}}
+{%- for message in messages %}
+{%- if message['role'].lower() == 'user' %}
+{{message['content'] + ' [/INST] '}}
+{%- elif message['role'].lower() == 'assistant' %}
+{{message['content']}} </s><s>{{'[INST] '}}
+{%- endif %}
+{%- endfor %}
