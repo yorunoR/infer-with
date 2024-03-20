@@ -3,7 +3,8 @@ import litellm
 litellm.set_verbose=True
 
 # model = "openai/cyberagent/calm2-7b-chat"
-model = "openai/elyza/ELYZA-japanese-Llama-2-13b-instruct"
+# model = "openai/elyza/ELYZA-japanese-Llama-2-13b-instruct"
+model = "openai/tokyotech-llm/Swallow-13b-instruct-hf"
 
 system = "あなたは誠実で優秀な日本人のアシスタントです。"
 # content = "こんにちは"

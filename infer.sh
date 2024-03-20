@@ -3,7 +3,8 @@
 # model=gorilla-llm/gorilla-openfunctions-v2
 # model=mistralai/Mistral-7B-Instruct-v0.2
 # model=cyberagent/calm2-7b-chat
-model=elyza/ELYZA-japanese-Llama-2-13b-instruct
+# model=elyza/ELYZA-japanese-Llama-2-13b-instruct
+model=tokyotech-llm/Swallow-13b-instruct-hf
 
 python -m vllm.entrypoints.openai.api_server \
   --port 4000 \
@@ -11,6 +12,7 @@ python -m vllm.entrypoints.openai.api_server \
   --tensor-parallel-size 2 \
   --max-model-len 2048 \
   --gpu-memory-utilization 0.9 \
-  --chat-template ./elyza-instruct.jinja
+  --chat-template ./swallow-instruct.jinja
 
+#  --chat-template ./elyza-instruct.jinja
 #   --chat-template ./template.jinja
