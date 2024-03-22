@@ -1,4 +1,4 @@
-# export HF_DATASETS_CACHE="/path/to/another/directory"
+# export HF_HOME="$PWD/models"
 
 model=cyberagent/calm2-7b-chat
 # model=elyza/ELYZA-japanese-Llama-2-13b-instruct
