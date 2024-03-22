@@ -2,9 +2,9 @@ import litellm
 
 litellm.set_verbose=True
 
-# model = "openai/cyberagent/calm2-7b-chat"
+model = "openai/cyberagent/calm2-7b-chat"
 # model = "openai/elyza/ELYZA-japanese-Llama-2-13b-instruct"
-model = "openai/tokyotech-llm/Swallow-13b-instruct-hf"
+# model = "openai/tokyotech-llm/Swallow-13b-instruct-hf"
 
 system = "あなたは誠実で優秀な日本人のアシスタントです。"
 # content = "こんにちは"
@@ -18,8 +18,10 @@ response = litellm.completion(
         {"role": "system", "content": system},
         {"role": "user", "content": content},
     ],
-    temperature=0,
-    max_tokens=512
+    max_tokens=1024,
+    temperature=0.1,
+    frequency_penalty=0,
+    presence_penalty=-0.8
 )
 
 print(response)
