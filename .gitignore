@@ -1,3 +1,5 @@
-/venv
-/data/*
+/venv*
+/data/hub/*
+!/data/hub/.gitkeep
 /outputs/*
+!/outputs/.gitkeep
