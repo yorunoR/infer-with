@@ -1,10 +1,10 @@
 以下に、あるタスクを説明する指示があり、それに付随する入力が更なる文脈を提供しています。リクエストを適切に完了するための回答を記述してください。
 {% for message in messages %}
-{% if message['role'].lower() == 'system' %}{{'### 指示:'}}
+{% if message['role'] == 'system' %}{{'### 指示:'}}
 {{message['content']}}
-{% elif message['role'].lower() == 'user' %}{{'### 入力:'}}
+{% elif message['role'] == 'user' %}{{'### 入力:'}}
 {{message['content']}}
-{% elif message['role'].lower() == 'assistant' %}{{'### 応答:'}}
+{% elif message['role'] == 'assistant' %}{{'### 応答:'}}
 {{message['content']}}
 {% endif %}{% endfor %}
 ### 応答:
