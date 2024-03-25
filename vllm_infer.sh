@@ -1,4 +1,4 @@
-# export HF_HOME="$PWD/models"
+export HF_HOME="$PWD/data"
 
 model=cyberagent/calm2-7b-chat
 # model=elyza/ELYZA-japanese-Llama-2-13b-instruct
