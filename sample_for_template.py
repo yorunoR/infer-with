@@ -47,3 +47,15 @@ t="""以下に、あるタスクを説明する指示があり、それに付随
 
 tokenizer.chat_template = t
 tokenizer.save_pretrained(f"./outputs/{model}")
+
+print('============================')
+model="Rakuten/RakutenAI-7B-chat"
+tokenizer = AutoTokenizer.from_pretrained(model)
+
+t="""{% for message in messages %}{% if message['role'] == 'system' %}{{message['content']}}
+{% elif message['role'] == 'user' %}{{'USER: ' + message['content']}}
+{% elif message['role'] == 'assistant' %}{{'ASSISTANT: ' + message['content']}}
+{% endif %}{% endfor %}ASSISTANT:"""
+
+tokenizer.chat_template = t
+tokenizer.save_pretrained(f"./outputs/{model}")
