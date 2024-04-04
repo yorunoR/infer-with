@@ -2,6 +2,7 @@ model=cyberagent/calm2-7b-chat
 # model=Rakuten/RakutenAI-7B-chat
 # model=elyza/ELYZA-japanese-Llama-2-13b-instruct
 # model=tokyotech-llm/Swallow-13b-instruct-hf
+# model=teknium/OpenHermes-2.5-Mistral-7B
 
 volume=$PWD/data/hub
 
