@@ -7,9 +7,12 @@ model = "openai/cyberagent/calm2-7b-chat"
 # model = "openai/elyza/ELYZA-japanese-Llama-2-13b-instruct"
 # model = "openai/tokyotech-llm/Swallow-13b-instruct-hf"
 # model = "openai/teknium/OpenHermes-2.5-Mistral-7B"
+# model = "openai/./data/hub/RakutenAI-7B-chat_merged"
+# model = "openai/elyza/ELYZA-japanese-Llama-2-13b-fast-instruct"
 
 # system = "あなたは誠実で優秀な日本人のアシスタントです。"
 # content = "こんにちは"
+# content = "富士山とは"
 # content = "仕事の熱意を取り戻すためのアイデアを5つ挙げてください。"
 # content = "論理的な書き方で議論を評価するための5つの主要な原則を説明してください。"
 # content = "医者になったつもりで、さまざまな病気や症状に対する革新的な治療法を考えてください。伝統的な薬、薬草、自然療法などを処方することが含まれます。また、提案する際には、患者の年齢、ライフスタイル、医療履歴を考慮する必要があります。では、激しい腹痛の症状診断から始めてみてください。"
@@ -31,8 +34,9 @@ response = litellm.completion(
     max_tokens=1800,
     temperature=0.1,
     frequency_penalty=0,
-    presence_penalty=-1,
+    presence_penalty=-1, # tgi
     # presence_penalty=-0.9, # swallow & rakuten
+    # presence_penalty=1,
     top_p=0.99,
 )
 

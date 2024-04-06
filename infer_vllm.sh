@@ -6,6 +6,7 @@ model=cyberagent/calm2-7b-chat
 # model=Rakuten/RakutenAI-7B-chat
 # model=openchat/openchat_3.5
 # model=berkeley-nest/Starling-LM-7B-alpha
+# model="./data/hub/RakutenAI-7B-chat_merged"
 
 python -m vllm.entrypoints.openai.api_server \
   --port 4000 \
