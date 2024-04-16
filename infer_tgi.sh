@@ -9,7 +9,7 @@ volume=$PWD/data/hub
 
 echo $model
 docker run --gpus all --shm-size 1g \
-  -v $volume:/data -p 4000:80 ghcr.io/huggingface/text-generation-inference:1.4 \
+  -v $volume:/data -p 4000:80 ghcr.io/huggingface/text-generation-inference:2.0 \
   --model-id $model \
   --num-shard 2 \
   --cuda-memory-fraction 1.0 \
