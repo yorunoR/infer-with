@@ -9,6 +9,16 @@ model = "openai/cyberagent/calm2-7b-chat"
 # model = "openai/teknium/OpenHermes-2.5-Mistral-7B"
 # model = "openai/./data/hub/RakutenAI-7B-chat_merged"
 # model = "openai/elyza/ELYZA-japanese-Llama-2-13b-fast-instruct"
+# model = "openai/./data/hub/Phind-CodeLlama-34B-v2-GPTQ"
+# model = "openai/./data/hub/train_2024-04-06-19-25-28"
+# model = "openai/lightblue/qarasu-14B-chat-plus-unleashed"
+# model = "openai/./data/hub/karakuri-lm-70b-chat-v0.1-GPTQ"
+# model = "openai/NTQAI/chatntq-ja-7b-v1.0"
+# model = "openai/TFMC/Japanese-Starling-ChatV-7B"
+# model = "openai/Nexusflow/Starling-LM-7B-beta"
+# model = "openai/Phind/Phind-CodeLlama-34B-v2"
+# model = "openai/CohereForAI/c4ai-command-r-v01"
+# model = "openai/karakuri-ai/karakuri-lm-70b-chat-v0.1"
 
 # system = "あなたは誠実で優秀な日本人のアシスタントです。"
 # content = "こんにちは"
@@ -36,6 +46,7 @@ response = litellm.completion(
     frequency_penalty=0,
     presence_penalty=-1, # tgi
     # presence_penalty=-0.9, # swallow & rakuten
+    # presence_penalty=0, # vllm
     # presence_penalty=1,
     top_p=0.99,
 )

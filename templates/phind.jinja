@@ -1,0 +1,10 @@
+{% for message in messages %}
+{% if message['role'] == 'system' %}{{'### System Prompt'}}
+{{message['content']}}
+{% elif message['role'] == 'user' %}{{'### User Message'}}
+{{message['content']}}
+{% elif message['role'] == 'assistant' %}{{'### Assistant'}}
+{{message['content']}}
+{% endif %}{% endfor %}
+### Assistant
+
