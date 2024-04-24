@@ -3,3 +3,6 @@
 !/data/hub/.gitkeep
 /outputs/*
 !/outputs/.gitkeep
+/data/modules/*
+/data/datasets/*
+/gguf/*
