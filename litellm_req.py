@@ -19,6 +19,7 @@ model = "openai/cyberagent/calm2-7b-chat"
 # model = "openai/Phind/Phind-CodeLlama-34B-v2"
 # model = "openai/CohereForAI/c4ai-command-r-v01"
 # model = "openai/karakuri-ai/karakuri-lm-70b-chat-v0.1"
+# model = "openai/umiyuki/Japanese-Chat-Umievo-itr001-7b"
 
 # system = "あなたは誠実で優秀な日本人のアシスタントです。"
 # content = "こんにちは"
@@ -31,6 +32,7 @@ content = "以下の一文で始まるミステリー短編小説を作成して
 # content = "江戸時代の侍を主人公とする短編小説の登場人物を鮮やかに描写してください。主人公の侍の性格、外見、特技、生き様を具体的に述べてください。"
 # content = "公の場で話すのが苦手な友人を、地元の「ことばの会」でボランティアとして参加するよう説得するメールを書いてください。親しみやすい日本語で、友情と共感を表現してください。"
 # content = "ある朝目覚めて、突然自分が忍者になってしまったという設定の短編小説の序章を書いてください。"
+content = "東京湾に架かるレインボーブリッジの工事が行われたとき、どのような留意点が重要だったか述べてください。"
 
 
 response = litellm.completion(
