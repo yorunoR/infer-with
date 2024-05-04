@@ -14,7 +14,9 @@ model=cyberagent/calm2-7b-chat
 # model=CohereForAI/c4ai-command-r-plus
 # model=karakuri-ai/karakuri-lm-70b-chat-v0.1
 # model=TFMC/Japanese-Starling-ChatV-7B
-# model=umiyuki/Japanese-Chat-Umievo-itr001-7b
+# model=Local-Novel-LLM-project/Ninja-v1
+# model=Local-Novel-LLM-project/Vecteus-v1
+# model=Local-Novel-LLM-project/Assistance
 
 volume=$PWD/data/hub
 
@@ -23,11 +25,13 @@ docker run --device /dev/kfd --device /dev/dri --shm-size 1g \
   -v $volume:/data -p 4000:80 ghcr.io/huggingface/text-generation-inference:1.4-rocm \
   --model-id $model \
   --max-batch-prefill-tokens 2048 \
+  --max-input-length 600 \
+  --max-total-tokens 2400 \
   # --max-input-tokens=2048 \
   # --num-shard 2 \
   # --cuda-memory-fraction 1.0 \
   # --quantize eetq
   # --quantize bitsandbytes-fp4
   # --quantize gptq
-  # swallow & rakuten --max-input-length 600 \
-  # swallow & rakuten --max-total-tokens 2400 \
+  # swallow & rakuten & ninja --max-input-length 600 \
+  # swallow & rakuten & ninja --max-total-tokens 2400 \
