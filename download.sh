@@ -15,3 +15,8 @@ export HF_HUB_ENABLE_HF_TRANSFER=1
 # model=prometheus-eval/prometheus-7b-v2.0
 
 huggingface-cli download --resume-download $model
+
+
+# dataset=elyza/ELYZA-tasks-100
+
+# huggingface-cli download --resume-download --repo-type dataset $dataset
