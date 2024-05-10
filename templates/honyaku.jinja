@@ -1,0 +1,3 @@
+{% for message in messages %}{% if message['role'] == 'user' %}<english>: {{ message['content'] }} <NL>
+{% elif message['role'] == 'assistant' %}<japanese>: {{ message['content'] }}
+{% endif %}{% endfor %}<japanese>: 

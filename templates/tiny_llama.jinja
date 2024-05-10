@@ -1,0 +1,3 @@
+{% for message in messages %}{% if message['role'] == 'assistant' %}{{'### Assistant: ' + message['content']}}
+{% else %}{{'### Human: ' + message['content']}}
+{% endif %}{% endfor %}### Assistant: 

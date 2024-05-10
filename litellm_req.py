@@ -20,6 +20,12 @@ model = "openai/cyberagent/calm2-7b-chat"
 # model = "openai/CohereForAI/c4ai-command-r-v01"
 # model = "openai/karakuri-ai/karakuri-lm-70b-chat-v0.1"
 # model = "openai/umiyuki/Japanese-Chat-Umievo-itr001-7b"
+# model = "openai/DataPilot/ArrowPro-7B-KUJIRA"
+# model = "openai/stabilityai/japanese-stablelm-2-instruct-1_6b"
+# model = "openai/microsoft/Phi-3-medium-4k-instruct"
+# model = "openai/aixsatoshi/Honyaku-13b"
+# model = "openai/bullerwins/Codestral-22B-v0.1-hf"
+# model = "openai/elyza/ELYZA-japanese-CodeLlama-7b-instruct"
 
 # system = "あなたは誠実で優秀な日本人のアシスタントです。"
 # content = "こんにちは"
@@ -35,6 +41,17 @@ content = "以下の一文で始まるミステリー短編小説を作成して
 # content = "東京湾に架かるレインボーブリッジの工事が行われたとき、どのような留意点が重要だったか述べてください。"
 # content = "追加のデータ構造を使わずに、二つの配列の共通要素を見つけるプログラムを実装してください。"
 
+# content = """In an era marked by rapid globalization, the intricate interplay between international law, economic policies, and political dynamics has become increasingly complex.
+# Legal frameworks, once confined within national borders, now stretch across continents, necessitating a nuanced understanding of transnational legislation and treaties.
+# As multinational corporations navigate the labyrinthine maze of global markets, economic theories that underpin currency fluctuations, trade imbalances, and fiscal policies are more pertinent than ever.
+# Central to these economic considerations is the concept of market equilibrium, a delicate balance affected by myriad factors including consumer behavior, governmental regulations, and global crises.
+# Politically, the landscape is equally labyrinthine. Ideological shifts and the resurgence of nationalism have reshaped diplomatic relations, with international agreements and alliances being tested under the strain of geopolitical tensions.
+# The role of supranational entities like the United Nations and the European Union in mediating these conflicts is of paramount importance, as is the need for diplomatic finesse in an increasingly multipolar world.
+# Furthermore, the intersection of politics and economics is evident in the debate over economic sanctions and their efficacy in swaying political decisions.
+# In this context, understanding the subtleties of rhetoric used in political discourse, and how it interweaves with legal jargon and economic terminology, is crucial.
+# For instance, the rhetoric surrounding fiscal austerity measures often intertwines with legal discourse on budgetary legislation and economic debates on inflation control.
+# Similarly, discussions on constitutional amendments are frequently laden with political undertones, reflecting broader societal issues and ideological divides.
+# This convergence of legal, economic, and political vernacular presents a unique challenge for machine translation systems, demanding not only linguistic accuracy but also a deep comprehension of the nuanced interplay of these disciplines."""
 
 response = litellm.completion(
     model=model,
@@ -52,6 +69,7 @@ response = litellm.completion(
     # presence_penalty=0, # vllm
     # presence_penalty=1,
     top_p=0.99,
+    # stop='<NL>'
 )
 
 print(response)

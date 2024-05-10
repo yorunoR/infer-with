@@ -17,17 +17,29 @@ model=cyberagent/calm2-7b-chat
 # model=Sdff-Ltba/LightChatAssistant-2x7B
 # model=NTQAI/chatntq-ja-7b-v1.0
 # model=/data/1.0-chatvector
+# model=/data/shepherd-0.8-codevector
+# model=ibm-granite/granite-8b-code-instruct
+# model=DataPilot/ArrowPro-7B-KUJIRA
+# model=Local-Novel-LLM-project/Vecteus-v1
+# model=microsoft/Phi-3-mini-128k-instruct
+# model=microsoft/Phi-3-small-8k-instruct
+# model=microsoft/Phi-3-medium-4k-instruct
+# model=stabilityai/japanese-stablelm-2-instruct-1_6b
+# model=DataPilot/ArrowPro-7B-RobinHood
+# model=nitky/Oumuamua-7b-instruct
+# model=Qwen/Qwen2-7B-Instruct
 
 volume=$PWD/data/hub
 
 echo $model
 docker run --gpus all --shm-size 1g \
-  -v $volume:/data -p 4000:80 ghcr.io/huggingface/text-generation-inference:2.0 \
+  -e HUGGING_FACE_HUB_TOKEN=$HF_TOKEN \
+  -v $volume:/data -p 4000:80 ghcr.io/huggingface/text-generation-inference:2.0.4 \
   --model-id $model \
+  --max-batch-prefill-tokens 4096 \
   --num-shard 2 \
-  --cuda-memory-fraction 1.0 \
-  --max-batch-prefill-tokens 2048 \
-  --max-input-tokens=2048 \
+  --cuda-memory-fraction 0.8 \
+  --trust-remote-code
   # --quantize eetq
   # --quantize bitsandbytes-fp4
   # --quantize gptq

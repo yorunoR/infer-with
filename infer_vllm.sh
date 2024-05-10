@@ -15,15 +15,28 @@ model=cyberagent/calm2-7b-chat
 # model="TFMC/Japanese-Starling-ChatV-7B"
 # model="Nexusflow/Starling-LM-7B-beta"
 # model=karakuri-ai/karakuri-lm-70b-chat-v0.1
+# model=stabilityai/japanese-stablelm-2-instruct-1_6b
+# model=microsoft/Phi-3-mini-128k-instruct
+# model=microsoft/Phi-3-mini-4k-instruct
+# model=microsoft/Phi-3-small-8k-instruct
+# model=microsoft/Phi-3-medium-4k-instruct
+# model=aixsatoshi/Honyaku-13b
+# model=bullerwins/Codestral-22B-v0.1-hf
+# model=elyza/ELYZA-japanese-CodeLlama-7b-instruct
+# model=Qwen/Qwen2-0.5B-Instruct
 
 python -m vllm.entrypoints.openai.api_server \
   --port 4000 \
   --model ${model} \
-  --tensor-parallel-size 2 \
   --max-model-len 2048 \
+  --tensor-parallel-size 2 \
   --gpu-memory-utilization 0.9 \
   --trust-remote-code \
   --chat-template ./templates/calm2-chat.jinja
+  # --chat-template ./templates/qwen.jinja
+  # --chat-template ./templates/honyaku.jinja
+  # --chat-template ./templates/phi-3.jinja
+  # --chat-template ./templates/stablelm.jinja
   # --chat-template ./templates/elyza-instruct.jinja
   # --chat-template ./templates/swallow-instruct.jinja
   # --chat-template ./templates/rakuten-chat.jinja
