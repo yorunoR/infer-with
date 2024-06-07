@@ -40,6 +40,7 @@ content = "以下の一文で始まるミステリー短編小説を作成して
 # content = "ある朝目覚めて、突然自分が忍者になってしまったという設定の短編小説の序章を書いてください。"
 # content = "東京湾に架かるレインボーブリッジの工事が行われたとき、どのような留意点が重要だったか述べてください。"
 # content = "追加のデータ構造を使わずに、二つの配列の共通要素を見つけるプログラムを実装してください。"
+# content = "f(x) = 4x^3 - 9x - 14 + 3 が与えられたとき、f(0.1)の値を求めてください。"
 
 # content = """In an era marked by rapid globalization, the intricate interplay between international law, economic policies, and political dynamics has become increasingly complex.
 # Legal frameworks, once confined within national borders, now stretch across continents, necessitating a nuanced understanding of transnational legislation and treaties.
@@ -53,6 +54,22 @@ content = "以下の一文で始まるミステリー短編小説を作成して
 # Similarly, discussions on constitutional amendments are frequently laden with political undertones, reflecting broader societal issues and ideological divides.
 # This convergence of legal, economic, and political vernacular presents a unique challenge for machine translation systems, demanding not only linguistic accuracy but also a deep comprehension of the nuanced interplay of these disciplines."""
 
+# question = "1辺が10単位、高さが5単位の三角形の面積を求めなさい。"
+# name="calculate_triangle_area"
+# description="三角形の底辺と高さから、その面積を計算します。"
+# question = "ジョギングが好きな人の性格を3つ挙げなさい。"
+# name="get_personality_traits"
+# description="趣味や活動に基づいて、人々の共通の性格を取得します。"
+# question = "ゲーム『ゼルダの伝説 ブレス オブ ザ ワイルド』に登場する武器「ガーディアンソードプラス」の攻撃力は？"
+# name = "get_game_item_stats"
+# description = "特定のビデオゲームの特定のアイテムの統計情報を取得します。"
+# content = f"""「{question}」という指示に対して、{name}という関数を使います。
+# {name}は、{description}
+# {name}の返り値を予測しなさい。返り値は[[と]]で囲ってください。
+# 回答は、以下の形式でしてください。
+# 説明:（説明）
+# 返り値: [[返り値]]"""
+
 response = litellm.completion(
     model=model,
     api_key="EMPTY",
@@ -62,7 +79,7 @@ response = litellm.completion(
         {"role": "user", "content": content},
     ],
     max_tokens=1800,
-    temperature=0.1,
+    temperature=0.01,
     frequency_penalty=0,
     presence_penalty=-1, # tgi
     # presence_penalty=-0.9, # swallow & rakuten
