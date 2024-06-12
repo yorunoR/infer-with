@@ -34,5 +34,7 @@ huggingface-cli download --resume-download $model
 # dataset=elyza/ELYZA-tasks-100
 # dataset=nvidia/OpenMathInstruct-1
 # dataset=gorilla-llm/Berkeley-Function-Calling-Leaderboard
+# dataset=lightblue/tengu_bench
+# dataset=yuzuai/rakuda-questions
 
 # huggingface-cli download --resume-download --repo-type dataset $dataset
