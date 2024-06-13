@@ -41,6 +41,7 @@ content = "以下の一文で始まるミステリー短編小説を作成して
 # content = "東京湾に架かるレインボーブリッジの工事が行われたとき、どのような留意点が重要だったか述べてください。"
 # content = "追加のデータ構造を使わずに、二つの配列の共通要素を見つけるプログラムを実装してください。"
 # content = "f(x) = 4x^3 - 9x - 14 + 3 が与えられたとき、f(0.1)の値を求めてください。"
+# content = "満月から次の満月まで ２９．５３日かかるものとします。ある【うるう年】の ９月３０日が満月であるとき、次の満月を１回目として、１００回目の満月となるのは何年後の何月何日ですか。ただし、【うるう年】は４年に１度、必ずあるものとします。"
 
 # content = """In an era marked by rapid globalization, the intricate interplay between international law, economic policies, and political dynamics has become increasingly complex.
 # Legal frameworks, once confined within national borders, now stretch across continents, necessitating a nuanced understanding of transnational legislation and treaties.
@@ -69,6 +70,32 @@ content = "以下の一文で始まるミステリー短編小説を作成して
 # 回答は、以下の形式でしてください。
 # 説明:（説明）
 # 返り値: [[返り値]]"""
+
+# content = """あなたは、タスクを実行するために関数を呼び出すAIアシスタントです。
+#
+# 関数を呼び出すことで、タスクやユーザーからの問い合わせをサポートすることができます。関数を呼び出すには、1つの関数を呼び出すJSONオブジェクト、または複数の関数を呼び出すJSONオブジェクトのリストで応答します：
+#
+# "function"：このフィールドには、呼び出したい関数の名前を記述する。
+# "arguments"：このフィールドに関数の引数を記述する。
+#
+# 応答が終了したら、各関数の呼び出し結果が表示されます。
+#
+# ---
+# ## 関数
+# 以下は、システムとのやりとりに使用できる関数のリストです。各関数には固有のパラメータと要件があります。各関数の指示に注意深く従うようにしてください。
+# 実行したいタスクに応じて、適切な関数を選択してください。JSON形式で関数コールを提供してください。
+#
+# ### Function \'latest_exchange_rate\'
+# 指定した2つの通貨の最新の為替レートを取得します。
+# #### Parameters
+# amount (float) 変換する金額。省略した場合は、1単位の通貨の交換レートを使用します。
+# source_currency (string) 変換元の通貨。
+# target_currency (string) 換算する通貨。
+#
+# ---
+#
+#
+# 英ポンドから日本円への最新の為替レートを教えてください。"""
 
 response = litellm.completion(
     model=model,

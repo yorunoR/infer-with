@@ -24,13 +24,17 @@ model=cyberagent/calm2-7b-chat
 # model=bullerwins/Codestral-22B-v0.1-hf
 # model=elyza/ELYZA-japanese-CodeLlama-7b-instruct
 # model=Qwen/Qwen2-0.5B-Instruct
+# model=nitky/Oumuamua-7b-instruct-v2
+# model=Local-Novel-LLM-project/Ninja-V2-7B
+# model=deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
 
 python -m vllm.entrypoints.openai.api_server \
   --port 4000 \
   --model ${model} \
   --max-model-len 2048 \
   --tensor-parallel-size 2 \
-  --gpu-memory-utilization 0.9 \
+  --gpu-memory-utilization 0.88 \
+  --kv-cache-dtype fp8 \
   --trust-remote-code \
   --chat-template ./templates/calm2-chat.jinja
   # --chat-template ./templates/qwen.jinja

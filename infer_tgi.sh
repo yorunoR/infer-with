@@ -27,7 +27,13 @@ model=cyberagent/calm2-7b-chat
 # model=stabilityai/japanese-stablelm-2-instruct-1_6b
 # model=DataPilot/ArrowPro-7B-RobinHood
 # model=nitky/Oumuamua-7b-instruct
+# model=nitky/Oumuamua-7b-instruct-v2
 # model=Qwen/Qwen2-7B-Instruct
+# model=shisa-ai/shisa-v1-llama3-8b
+# model=deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
+# model=elyza/Llama-3-ELYZA-JP-8B
+# model=google/gemma-2-9b-it
+# model=google/gemma-2-27b-it
 
 volume=$PWD/data/hub
 
@@ -38,9 +44,9 @@ docker run --gpus all --shm-size 1g \
   --model-id $model \
   --max-batch-prefill-tokens 4096 \
   --num-shard 2 \
-  --cuda-memory-fraction 0.8 \
+  --cuda-memory-fraction 0.98 \
   --trust-remote-code
-  # --quantize eetq
+  # --quantize eetq \
   # --quantize bitsandbytes-fp4
   # --quantize gptq
   # swallow & rakuten --max-input-length 600 \
