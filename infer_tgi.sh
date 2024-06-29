@@ -40,7 +40,7 @@ volume=$PWD/data/hub
 echo $model
 docker run --gpus all --shm-size 1g \
   -e HUGGING_FACE_HUB_TOKEN=$HF_TOKEN \
-  -v $volume:/data -p 4000:80 ghcr.io/huggingface/text-generation-inference:2.0.4 \
+  -v $volume:/data -p 4000:80 ghcr.io/huggingface/text-generation-inference:2.1 \
   --model-id $model \
   --max-batch-prefill-tokens 4096 \
   --num-shard 2 \
