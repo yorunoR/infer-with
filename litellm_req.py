@@ -1,4 +1,5 @@
 import litellm
+import time
 
 litellm.set_verbose=True
 
@@ -97,6 +98,8 @@ content = "以下の一文で始まるミステリー短編小説を作成して
 #
 # 英ポンドから日本円への最新の為替レートを教えてください。"""
 
+start = time.perf_counter() #計測開始
+
 response = litellm.completion(
     model=model,
     api_key="EMPTY",
@@ -115,5 +118,8 @@ response = litellm.completion(
     top_p=0.99,
     # stop='<NL>'
 )
+
+end = time.perf_counter() #計測終了
+print('{:.2f}'.format((end-start)/60)) # 87.97(秒
 
 print(response)
