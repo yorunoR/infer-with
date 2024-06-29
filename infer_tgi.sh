@@ -42,12 +42,14 @@ docker run --gpus all --shm-size 1g \
   -e HUGGING_FACE_HUB_TOKEN=$HF_TOKEN \
   -v $volume:/data -p 4000:80 ghcr.io/huggingface/text-generation-inference:2.1 \
   --model-id $model \
-  --max-batch-prefill-tokens 4096 \
-  --num-shard 2 \
-  --cuda-memory-fraction 0.98 \
+  --max-total-tokens 2800 \
+  --max-input-tokens 1999 \
+  --max-batch-prefill-tokens 2000 \
+  --num-shard 4 \
+  --cuda-memory-fraction 0.88 \
   --trust-remote-code
   # --quantize eetq \
-  # --quantize bitsandbytes-fp4
-  # --quantize gptq
+  # --quantize bitsandbytes-fp4 \
+  # --quantize gptq \
   # swallow & rakuten --max-input-length 600 \
   # swallow & rakuten --max-total-tokens 2400 \
