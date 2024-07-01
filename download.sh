@@ -34,6 +34,7 @@ export HF_HUB_ENABLE_HF_TRANSFER=1
 # model=elyza/Llama-3-ELYZA-JP-8B
 # model=google/gemma-2-9b-it
 # model=google/gemma-2-27b-it
+# model=UCLA-AGI/Gemma-2-9B-It-SPPO-Iter3
 
 huggingface-cli download --resume-download $model
 

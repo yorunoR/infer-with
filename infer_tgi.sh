@@ -33,7 +33,7 @@ model=cyberagent/calm2-7b-chat
 # model=deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
 # model=elyza/Llama-3-ELYZA-JP-8B
 # model=google/gemma-2-9b-it
-# model=google/gemma-2-27b-it
+# model=UCLA-AGI/Gemma-2-9B-It-SPPO-Iter3
 
 volume=$PWD/data/hub
 
