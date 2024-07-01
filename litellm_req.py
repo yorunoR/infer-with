@@ -124,6 +124,6 @@ for part in response:
     print(part.choices[0].delta.content or "", end='')
 
 end = time.perf_counter() #計測終了
-print('{:.2f}'.format((end-start)/60)) # 87.97(秒
+print("\n{:.2f}".format(end-start))
 
 # print(response)
