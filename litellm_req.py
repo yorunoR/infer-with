@@ -1,7 +1,7 @@
 import litellm
 import time
 
-litellm.set_verbose=True
+# litellm.set_verbose=True
 
 model = "openai/cyberagent/calm2-7b-chat"
 # model = "openai/Rakuten/RakutenAI-7B-chat"
@@ -116,10 +116,14 @@ response = litellm.completion(
     # presence_penalty=0, # vllm
     # presence_penalty=1,
     top_p=0.99,
-    # stop='<NL>'
+    stop=['<end_of_turn>'],
+    stream=True
 )
+
+for part in response:
+    print(part.choices[0].delta.content or "", end='')
 
 end = time.perf_counter() #計測終了
 print('{:.2f}'.format((end-start)/60)) # 87.97(秒
 
-print(response)
+# print(response)
