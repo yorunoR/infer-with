@@ -27,12 +27,13 @@ model=cyberagent/calm2-7b-chat
 # model=nitky/Oumuamua-7b-instruct-v2
 # model=Local-Novel-LLM-project/Ninja-V2-7B
 # model=deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
+# model=mistralai/mathstral-7B-v0.1
 
 python -m vllm.entrypoints.openai.api_server \
   --port 4000 \
   --model ${model} \
-  --max-model-len 2048 \
-  --tensor-parallel-size 2 \
+  --max-model-len 4096 \
+  --tensor-parallel-size 4 \
   --gpu-memory-utilization 0.88 \
   --kv-cache-dtype fp8 \
   --trust-remote-code \

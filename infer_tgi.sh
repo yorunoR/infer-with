@@ -34,6 +34,11 @@ model=cyberagent/calm2-7b-chat
 # model=elyza/Llama-3-ELYZA-JP-8B
 # model=google/gemma-2-9b-it
 # model=UCLA-AGI/Gemma-2-9B-It-SPPO-Iter3
+# model=cyberagent/calm3-22b-chat
+# model=HODACHI/EZO-Humanities-9B-gemma-2-it
+# model=mistralai/Mistral-7B-Instruct-v0.3
+# model=DataPilot/Llama3.1-ArrowSE-v0.4
+# model=aixsatoshi/Meta-Llama-3.1-8B-Instruct-plus-Swallow
 
 volume=$PWD/data/hub
 
