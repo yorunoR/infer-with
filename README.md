@@ -21,13 +21,15 @@ pip install -r requirements.txt
 
 localhost:4000 で起動するので、curl 等でアクセスしてください
 ```
+curl http://localhost:4000/v1/models
+
 curl http://localhost:4000/v1/chat/completions \
     -H "Content-Type: application/json" \
     -d '{
         "model": "cyberagent/calm2-7b-chat",
         "messages": [
           {
-            "role": "USER",
+            "role": "user",
             "content": "こんにちは"
           }
         ],
