@@ -27,6 +27,7 @@ model = "openai/cyberagent/calm2-7b-chat"
 # model = "openai/aixsatoshi/Honyaku-13b"
 # model = "openai/bullerwins/Codestral-22B-v0.1-hf"
 # model = "openai/elyza/ELYZA-japanese-CodeLlama-7b-instruct"
+# model = "openai//root/.cache/huggingface/hub/models--Qwen--Qwen2-7B-Instruct/snapshots/41c66b0be1c3081f13defc6bdf946c2ef240d6a6"
 
 # system = "あなたは誠実で優秀な日本人のアシスタントです。"
 # content = "こんにちは"
@@ -116,7 +117,7 @@ response = litellm.completion(
     # presence_penalty=0, # vllm
     # presence_penalty=1,
     top_p=0.99,
-    stop=['<end_of_turn>'],
+    # stop=['<end_of_turn>'],
     stream=True
 )
 
