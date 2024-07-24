@@ -45,7 +45,7 @@ volume=$PWD/data/hub
 echo $model
 docker run --gpus all --shm-size 1g \
   -e HUGGING_FACE_HUB_TOKEN=$HF_TOKEN \
-  -v $volume:/data -p 4000:80 ghcr.io/huggingface/text-generation-inference:2.1 \
+  -v $volume:/data -p 4000:80 ghcr.io/huggingface/text-generation-inference:2.2 \
   --model-id $model \
   --max-total-tokens 2800 \
   --max-input-tokens 1999 \
