@@ -28,6 +28,7 @@ import time
 # model = "openai/bullerwins/Codestral-22B-v0.1-hf"
 # model = "openai/elyza/ELYZA-japanese-CodeLlama-7b-instruct"
 # model = "openai//root/.cache/huggingface/hub/models--Qwen--Qwen2-7B-Instruct/snapshots/41c66b0be1c3081f13defc6bdf946c2ef240d6a6"
+# model = "openai/Qwen/Qwen2-7B-Instruct"
 model = "openai/cyberagent/calm3-22b-chat"
 
 # system = "あなたは誠実で優秀な日本人のアシスタントです。"
@@ -100,6 +101,8 @@ content = "以下の一文で始まるミステリー短編小説を作成して
 #
 # 英ポンドから日本円への最新の為替レートを教えてください。"""
 
+stream = False
+
 start = time.perf_counter() #計測開始
 
 response = litellm.completion(
@@ -119,13 +122,14 @@ response = litellm.completion(
     # presence_penalty=1,
     top_p=0.99,
     # stop=['<end_of_turn>'],
-    stream=True
+    stream=stream
 )
 
-for part in response:
-    print(part.choices[0].delta.content or "", end='')
+if stream:
+  for part in response:
+      print(part.choices[0].delta.content or "", end='')
+else:
+  print(response)
 
 end = time.perf_counter() #計測終了
 print("\n{:.2f}".format(end-start))
-
-# print(response)
