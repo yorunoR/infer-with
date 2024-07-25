@@ -3,7 +3,7 @@ import time
 
 # litellm.set_verbose=True
 
-model = "openai/cyberagent/calm2-7b-chat"
+# model = "openai/cyberagent/calm2-7b-chat"
 # model = "openai/Rakuten/RakutenAI-7B-chat"
 # model = "openai/elyza/ELYZA-japanese-Llama-2-13b-instruct"
 # model = "openai/tokyotech-llm/Swallow-13b-instruct-hf"
@@ -28,6 +28,7 @@ model = "openai/cyberagent/calm2-7b-chat"
 # model = "openai/bullerwins/Codestral-22B-v0.1-hf"
 # model = "openai/elyza/ELYZA-japanese-CodeLlama-7b-instruct"
 # model = "openai//root/.cache/huggingface/hub/models--Qwen--Qwen2-7B-Instruct/snapshots/41c66b0be1c3081f13defc6bdf946c2ef240d6a6"
+model = "openai/cyberagent/calm3-22b-chat"
 
 # system = "あなたは誠実で優秀な日本人のアシスタントです。"
 # content = "こんにちは"

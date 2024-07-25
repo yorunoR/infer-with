@@ -1,6 +1,4 @@
-export HF_HOME="$PWD/data"
-
-model=cyberagent/calm2-7b-chat
+# model=cyberagent/calm2-7b-chat
 # model=elyza/ELYZA-japanese-Llama-2-13b-instruct
 # model=tokyotech-llm/Swallow-13b-instruct-hf
 # model=Rakuten/RakutenAI-7B-chat
@@ -28,16 +26,25 @@ model=cyberagent/calm2-7b-chat
 # model=Local-Novel-LLM-project/Ninja-V2-7B
 # model=deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
 # model=mistralai/mathstral-7B-v0.1
+model=cyberagent/calm3-22b-chat
 
-python -m vllm.entrypoints.openai.api_server \
-  --port 4000 \
-  --model ${model} \
-  --max-model-len 4096 \
-  --tensor-parallel-size 4 \
-  --gpu-memory-utilization 0.88 \
-  --kv-cache-dtype fp8 \
-  --trust-remote-code \
-  --chat-template ./templates/calm2-chat.jinja
+volume=$PWD/data
+
+echo $model
+docker run --runtime nvidia --gpus all \
+    -v $volume:/root/.cache/huggingface \
+    -e HUGGING_FACE_HUB_TOKEN=$HF_TOKEN \
+    -p 4000:8000 \
+    --ipc=host \
+    vllm/vllm-openai:latest \
+    --model $model \
+    --max-model-len 4096 \
+    --tensor-parallel-size 4 \
+    --gpu-memory-utilization 0.88 \
+    --kv-cache-dtype fp8 \
+    --trust-remote-code
+
+  # --chat-template ./templates/calm2-chat.jinja
   # --chat-template ./templates/qwen.jinja
   # --chat-template ./templates/honyaku.jinja
   # --chat-template ./templates/phi-3.jinja
