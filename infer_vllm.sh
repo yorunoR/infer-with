@@ -36,7 +36,7 @@ docker run --runtime nvidia --gpus all \
     -e HUGGING_FACE_HUB_TOKEN=$HF_TOKEN \
     -p 4000:8000 \
     --ipc=host \
-    vllm/vllm-openai:latest \
+    vllm/vllm-openai:v0.5.3.post1 \
     --model $model \
     --max-model-len 4096 \
     --tensor-parallel-size 4 \

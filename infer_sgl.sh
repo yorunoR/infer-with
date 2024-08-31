@@ -1,7 +1,9 @@
 # model=Qwen/Qwen2-7B-Instruct
 # model=google/gemma-2-9b-it
-model=google/gemma-2-27b-it
+# model=google/gemma-2-27b-it
 # model=cyberagent/calm3-22b-chat
+model=google/gemma-2-2b-it
+model=HODACHI/EZO-Common-T2-2B-gemma-2-it
 
 volume=$PWD/data
 
@@ -17,5 +19,5 @@ docker run --gpus all \
     --host 0.0.0.0 \
     --port 4000 \
     --disable-cuda-graph \
-    --tp 4 --enable-p2p-check --mem-fraction-static 0.84 \
+    --tp 2 --enable-p2p-check --mem-fraction-static 0.84 \
     --quantization fp8

@@ -43,6 +43,8 @@ export HF_HUB_ENABLE_HF_TRANSFER=1
 # model=mistralai/Mistral-Nemo-Instruct-2407
 # model=DataPilot/Llama3.1-ArrowSE-v0.4
 # model=aixsatoshi/Meta-Llama-3.1-8B-Instruct-plus-Swallow
+# model=google/gemma-2-2b-it
+model=HODACHI/EZO-Common-T2-2B-gemma-2-it
 
 huggingface-cli download --resume-download $model
 
