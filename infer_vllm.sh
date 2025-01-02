@@ -26,7 +26,8 @@
 # model=Local-Novel-LLM-project/Ninja-V2-7B
 # model=deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
 # model=mistralai/mathstral-7B-v0.1
-model=cyberagent/calm3-22b-chat
+# model=cyberagent/calm3-22b-chat
+model=Qwen/Qwen2-VL-7B-Instruct
 
 volume=$PWD/data
 
