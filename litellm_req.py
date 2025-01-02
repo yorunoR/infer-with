@@ -1,3 +1,5 @@
+import sys
+import base64
 import litellm
 import time
 
@@ -29,7 +31,8 @@ import time
 # model = "openai/elyza/ELYZA-japanese-CodeLlama-7b-instruct"
 # model = "openai//root/.cache/huggingface/hub/models--Qwen--Qwen2-7B-Instruct/snapshots/41c66b0be1c3081f13defc6bdf946c2ef240d6a6"
 # model = "openai/Qwen/Qwen2-7B-Instruct"
-model = "openai/cyberagent/calm3-22b-chat"
+# model = "openai/cyberagent/calm3-22b-chat"
+model = "openai/Qwen/Qwen2-VL-7B-Instruct"
 
 # system = "あなたは誠実で優秀な日本人のアシスタントです。"
 # content = "こんにちは"
@@ -101,7 +104,35 @@ content = "以下の一文で始まるミステリー短編小説を作成して
 #
 # 英ポンドから日本円への最新の為替レートを教えてください。"""
 
-stream = False
+stream = True
+
+def png_to_base64(file_path):
+    # ファイルをバイナリモードで読み込む
+    with open(file_path, "rb") as file:
+        # ファイルの内容をBase64エンコード
+        encoded_string = base64.b64encode(file.read()).decode('utf-8')
+    return encoded_string
+
+file_name = sys.argv[1]
+if file_name:
+    base64_string = png_to_base64(file_name)
+    message = {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "この画像は何について書いてある"
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": f"data:image/jpeg;base64,{base64_string}"
+                }
+            }
+        ]
+    }
+else:
+    message = {"role": "user", "content": content}
 
 start = time.perf_counter() #計測開始
 
@@ -111,15 +142,15 @@ response = litellm.completion(
     api_base="http://localhost:4000/v1",
     messages=[
         # {"role": "system", "content": system},
-        {"role": "user", "content": content},
+        message
     ],
     max_tokens=1800,
-    temperature=0.01,
-    frequency_penalty=0,
-    presence_penalty=-1, # tgi
+    temperature=0.1,
+    frequency_penalty=0.02,
+    # presence_penalty=-1, # tgi
     # presence_penalty=-0.9, # swallow & rakuten
     # presence_penalty=0, # vllm
-    # presence_penalty=1,
+    presence_penalty=1,
     top_p=0.99,
     # stop=['<end_of_turn>'],
     stream=stream
