@@ -157,10 +157,10 @@ response = litellm.completion(
 )
 
 if stream:
-  for part in response:
-      print(part.choices[0].delta.content or "", end='')
+    for part in response:
+        print(part.choices[0].delta.content or "", end='')
 else:
-  print(response)
+    print(response)
 
 end = time.perf_counter() #計測終了
 print("\n{:.2f}".format(end-start))
