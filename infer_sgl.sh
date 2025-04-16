@@ -16,6 +16,4 @@ docker run --gpus all \
     --model-path $model \
     --host 0.0.0.0 \
     --port 4000 \
-    --disable-cuda-graph \
-    --tp 4 --enable-p2p-check --mem-fraction-static 0.84 \
-    --quantization fp8
+    --tp 4 --enable-p2p-check --mem-fraction-static 0.84

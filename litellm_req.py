@@ -32,7 +32,9 @@ import time
 # model = "openai//root/.cache/huggingface/hub/models--Qwen--Qwen2-7B-Instruct/snapshots/41c66b0be1c3081f13defc6bdf946c2ef240d6a6"
 # model = "openai/Qwen/Qwen2-7B-Instruct"
 # model = "openai/cyberagent/calm3-22b-chat"
-model = "openai/Qwen/Qwen2-VL-7B-Instruct"
+# model = "openai/Qwen/Qwen2-VL-7B-Instruct"
+# model = "openai/google/paligemma2-10b-ft-docci-448"
+model = "openai/google/gemma-3-12b-it"
 
 # system = "あなたは誠実で優秀な日本人のアシスタントです。"
 # content = "こんにちは"

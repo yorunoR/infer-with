@@ -27,7 +27,9 @@
 # model=deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
 # model=mistralai/mathstral-7B-v0.1
 # model=cyberagent/calm3-22b-chat
-model=Qwen/Qwen2-VL-7B-Instruct
+# model=Qwen/Qwen2-VL-7B-Instruct
+# model=google/paligemma2-10b-ft-docci-448
+model=google/gemma-3-12b-it
 
 volume=$PWD/data
 
@@ -37,11 +39,11 @@ docker run --runtime nvidia --gpus all \
     -e HUGGING_FACE_HUB_TOKEN=$HF_TOKEN \
     -p 4000:8000 \
     --ipc=host \
-    vllm/vllm-openai:latest \
+    vllm/vllm-openai:v0.8.4 \
     --model $model \
     --max-model-len 4096 \
     --tensor-parallel-size 4 \
-    --gpu-memory-utilization 0.88 \
+    --gpu-memory-utilization 0.84 \
     --kv-cache-dtype fp8 \
     --trust-remote-code
 

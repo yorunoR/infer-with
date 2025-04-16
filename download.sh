@@ -44,6 +44,11 @@ export HF_HUB_ENABLE_HF_TRANSFER=1
 # model=DataPilot/Llama3.1-ArrowSE-v0.4
 # model=aixsatoshi/Meta-Llama-3.1-8B-Instruct-plus-Swallow
 # model=Qwen/Qwen2-VL-7B-Instruct
+# model=google/paligemma2-10b-ft-docci-448
+# model=google/gemma-3-12b-it
+# model=Qwen/Qwen2.5-VL-32B-Instruct
+# model=Qwen/Qwen2.5-14B-Instruct
+model=Qwen/Qwen2.5-VL-7B-Instruct
 
 huggingface-cli download --resume-download $model
 

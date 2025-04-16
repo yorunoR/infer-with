@@ -51,7 +51,7 @@ docker run --gpus all --shm-size 1g \
   --max-input-tokens 1999 \
   --max-batch-prefill-tokens 2000 \
   --num-shard 4 \
-  --cuda-memory-fraction 0.88 \
+  --cuda-memory-fraction 0.84 \
   --trust-remote-code
   # --quantize eetq \
   # --quantize bitsandbytes-fp4 \
